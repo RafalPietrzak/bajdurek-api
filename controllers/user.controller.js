@@ -37,10 +37,14 @@ exports.newOrder = async (req, res) => {
     user.orders.push(newOrder);
     user.save();
     //TODO add summary and redirect to pay api not to paid end
-    res.redirect('/api/user/pay');
-    
+    res.redirect('/api/user/paid');
+
   } catch (err) {
     console.log('ERROR:' + err);
     res.status(500);  
   }
+}
+
+exports.paid = async (req, res) => {
+  res.redirect(process.env.clientURL);
 }

@@ -13,7 +13,7 @@ const passportConfig = require('./config/passport');
 const { v4: uuidv4 } = require('uuid');
 
 app.use(cors({
-  origin: 'http://localhost:3000',     
+  origin: process.env.clientURL,     
   methods: ['GET','POST'],
   credentials: true }
 ));
@@ -25,7 +25,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use('/api/user', (req, res, next)=>{
   if(!req.user) {
     res.status(401).json({permission: false, message: 'Permission denied. Not logged'})

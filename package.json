@@ -5,6 +5,7 @@
   "author": "Rafał Pietrzak",
   "license": "MIT",
   "dependencies": {
+    "@adyen/api-library": "^5.0.1",
     "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
